@@ -1,0 +1,56 @@
+﻿
+
+0. DsrcRepository.java
+
+    // DSRC_SECT 정보관리, DSRC Sect 관리(sectid, start_rsd_id, end_rse_id, ...)
+    public ConcurrentHashMap<String, voDsrcSect> dsrcSectMap = null;
+    // 시작 DSRC를 키로 하는 SECT_ID 목록, { STRT_ID, [SECT_ID, SECT_ID, ...] }
+    public Multimap<String, String> dsrcSectStartMap = null;
+    // 종료 DSRC를 키로 하는 SECT_ID 목록, { END_ID, [SECT_ID, SECT_ID, ...] }
+    public Multimap<String, String> dsrcSectEndMap = null;
+
+
+
+
+
+1. OBU DSRC 통과정보
+
+PublicationResponse.java
+
+OBUGatherInfoService.java
+    decoding_OBUGatherInfo
+        DsrcRepository.getInstance().dsrcSectStartMap
+            // 시작 DSRC에 해당하는 모든 구간에 대하여
+            DsrcSectService.dsrcObuPassMap.put(obuid, passinfo);
+
+        DsrcRepository.getInstance().dsrcSectEndMap
+            // 종료 SECT_ID에 대하여 이전 통과정보가 존재하지 않으면 추가, 존재하면 통과종료시각 업데이트
+            DsrcSectService.dsrcObuPassMap.put(obuid, passinfo);
+            passInfo.get(obuIdNumber).setEndDsrcPassTm(generationTm);
+
+    // OBU 수집정보를 데이터베이스에 저장
+    DsrcAsn1ServerDataProcess.java
+        OBUGatherService.java
+            insertOBUGatherInfoHs(list)
+                OBUGather.xml
+                TB_RSE_OBU_CLCT_HS
+
+
+2. SECT 교통정보 생성
+
+    DsrcSectService.java
+
+        OBUGatherService.java
+            insertDsrcSectTraf
+                DsrcSect.xml
+                TB_RSE_SECT_TRAF
+            insertDsrcSectPassHs
+                DsrcSect.xml
+                TB_RSE_SECT_PASS_HS
+
+
+
+DsrcRepository.java
+dsrcSectMap      ==> 섹터 관리
+dsrcSectStartMap ==> 시작 DSRC를 키로하는 섹터 ID 목록
+dsrcSectEndMap   ==> 종료 DSRC를 키로하는 섹터 ID 목록

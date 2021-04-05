@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.its.dsrc.mapper.UnitSystMapper">
+
+    <select id="selectCount" resultType="int">
+    <![CDATA[
+        SELECT COUNT(1) AS datacnt FROM TB_UNIT_SYST WHERE A.DEL_YN = 'N'
+    ]]>
+    </select>
+
+    <select id="selectAll" resultType="com.its.dsrc.vo.voUnitSyst">
+    <![CDATA[
+	    SELECT A.SYST_ID	AS SYST_ID,
+	           A.SYST_TYPE	AS SYST_TYPE,
+	           A.SYST_NM	AS SYST_NM,
+	           A.SYST_IP_1	AS SYST_IP_1,
+	           A.SYST_IP_2	AS SYST_IP_2,
+	           TO_NUMBER(NVL(A.PRGM_PORT, '0')) AS PRGM_PORT
+	      FROM TB_UNIT_SYST A
+	     WHERE A.DEL_YN = 'N'
+	     ORDER BY A.SYST_ID
+    ]]>
+    </select>
+
+    <update id="updateUnitSystStts" parameterType="com.its.dsrc.vo.voUnitSystStts">
+    <![CDATA[
+        MERGE INTO TB_UNIT_SYST_STTS L
+        USING (SELECT #{obj.SYST_ID} 	   AS SYST_ID,
+                      #{obj.UPDT_DT} 	   AS UPDT_DT,
+                      #{obj.SYST_STTS_CD} AS SYST_STTS_CD
+                 FROM DUAL) M
+        ON ( L.SYST_ID = M.SYST_ID )
+        WHEN MATCHED THEN
+          UPDATE SET L.UPDT_DT      = M.UPDT_DT,
+                     L.SYST_STTS_CD = M.SYST_STTS_CD
+        WHEN NOT MATCHED THEN
+          INSERT (
+	              L.SYST_ID,
+	              L.UPDT_DT,
+	              L.SYST_STTS_CD
+                 )
+          VALUES (
+	              M.SYST_ID,
+	              M.UPDT_DT,
+	              M.SYST_STTS_CD
+                 )
+    ]]>
+    </update>
+
+    <insert id="insertUnitSystSttsHs" parameterType="com.its.dsrc.vo.voUnitSystStts">
+    <![CDATA[
+          INSERT INTO TB_UNIT_SYST_STTS_HS (
+                  CRTN_DT,
+                  SYST_ID,
+                  SYST_STTS_CD
+                 )
+          VALUES (
+                  #{obj.UPDT_DT},
+                  #{obj.SYST_ID},
+                  #{obj.SYST_STTS_CD}
+                 )
+    ]]>
+    </insert>
+
+</mapper>

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 60초마다 설정 파일의 변경을 확인 하여 변경시 갱신 -->
+<configuration scan="true" scanPeriod="60 seconds">
+    <shutdownHook class="ch.qos.logback.core.hook.DelayingShutdownHook"/>
+
+    <property name="PROJECT_NAME"    value="dsrc-comm-server"/>
+    <property name="ROOT_LOG_LEVEL"  value="INFO"/>
+    <property name="LOG_CHARSET"     value="UTF-8" />
+    <property name="LOG_PATH"        value="${user.dir}/logs/"/>
+    <property name="LOG_BACKUP_PATH" value="${user.dir}/logs/backup/"/>
+
+    <property name="LOG_FILE_NAME"             value="${PROJECT_NAME}.log"/>
+    <property name="LOG_FILE_NAME_ERROR"       value="${PROJECT_NAME}.err.log"/>
+    <property name="LOG_FILE_NAME_PATTERN"     value="%d{yyyyMMdd}_%i.log.gz"/>
+    <property name="LOG_FILE_NAME_PACKET"      value="packet"/>
+    <property name="LOG_FILE_NAME_CENTER_COMM" value="center_comm.log"/>
+    <property name="LOG_FILE_NAME_SQL"         value="sql.log"/>
+    <property name="LOG_FILE_NAME_SCHEDULE"    value="schedule.log"/>
+
+    <property name="MAX_FILESIZE" value="10MB"/>
+    <property name="MAX_HISTORY"  value="30"/>
+    <property name="LOG_PATTERN_FILE"        value="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%30t] [%5level] %42logger{35}.%-20M ${PID:-} : %msg%n"/>
+    <property name="LOG_PATTERN_ERROR"       value="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%30t] [%5level] %42logger{35}.%-20M ${PID:-} : %msg%n"/>
+    <property name="LOG_PATTERN_PACKET"      value="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5level] [%thread] %msg%n"/>
+    <property name="LOG_PATTERN_CENTER_COMM" value="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%30t] [%5level] %42logger{35}.%-20M ${PID:-} : %msg%n"/>
+    <property name="LOG_PATTERN_PACKET"      value="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5level] [%thread] %msg%n"/>
+    <property name="LOG_PATTERN_SQL"         value="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5level] [%thread] %msg%n"/>
+    <property name="LOG_PATTERN_SCHEDULE"    value="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5level] [%30thread] %msg%n"/>
+    <property name="LOG_PATTERN_CONSOLE"     value="%d{HH:mm:ss.SSS} [%30thread] %highlight([%5level]) %cyan(%42logger{35}.%-20M)${PID:-} : %msg%n"/>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <charset>${LOG_CHARSET}</charset>
+            <pattern>${LOG_PATTERN_CONSOLE}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="PACKET" class="ch.qos.logback.classic.sift.SiftingAppender">
+        <discriminator>
+            <key>id</key>
+            <defaultValue>${LOG_FILE_NAME_PACKET}</defaultValue>
+        </discriminator>
+        <sift>
+            <appender name="FILE-${id}" class="ch.qos.logback.core.rolling.RollingFileAppender">
+                <file>${LOG_PATH}packet/${id}.log</file>
+                <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+                    <charset>${LOG_CHARSET}</charset>
+                    <Pattern>${LOG_PATTERN_PACKET}</Pattern>
+                </encoder>
+
+                <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+                    <FileNamePattern>${LOG_BACKUP_PATH}packet/${id}.${LOG_FILE_NAME_PATTERN}</FileNamePattern>
+                    <MinIndex>1</MinIndex>
+                    <MaxIndex>10</MaxIndex>
+                </rollingPolicy>
+
+                <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+                    <MaxFileSize>${MAX_FILESIZE}</MaxFileSize>
+                </triggeringPolicy>
+            </appender>
+        </sift>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}${LOG_FILE_NAME}</file>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <charset>${LOG_CHARSET}</charset>
+            <pattern>${LOG_PATTERN_FILE}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_BACKUP_PATH}${LOG_FILE_NAME}.${LOG_FILE_NAME_PATTERN}</fileNamePattern>
+            <maxFileSize>${MAX_FILESIZE}</maxFileSize>
+            <maxHistory>${MAX_HISTORY}</maxHistory>
+        </rollingPolicy>
+    </appender>
+
+    <appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>error</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <file>${LOG_PATH}${LOG_FILE_NAME_ERROR}</file>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <charset>${LOG_CHARSET}</charset>
+            <pattern>${LOG_PATTERN_ERROR}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_BACKUP_PATH}${LOG_FILE_NAME_ERROR}.%d{yyyy-MM-dd}_%i.log</fileNamePattern>
+            <maxFileSize>${MAX_FILESIZE}</maxFileSize>
+            <maxHistory>${MAX_HISTORY}</maxHistory>
+        </rollingPolicy>
+    </appender>
+
+    <appender name="CENTER_COMM" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}${LOG_FILE_NAME_CENTER_COMM}</file>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <charset>${LOG_CHARSET}</charset>
+            <pattern>${LOG_PATTERN_CENTER_COMM}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_BACKUP_PATH}CenterComm/${LOG_FILE_NAME_CENTER_COMM}.${LOG_FILE_NAME_PATTERN}</fileNamePattern>
+            <maxFileSize>${MAX_FILESIZE}</maxFileSize>
+            <maxHistory>${MAX_HISTORY}</maxHistory>
+        </rollingPolicy>
+    </appender>
+
+    <appender name="FILE_SQL" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}${LOG_FILE_NAME_SQL}</file>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <charset>${LOG_CHARSET}</charset>
+            <pattern>${LOG_PATTERN}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_BACKUP_PATH}SQL/${LOG_FILE_NAME_SQL}.${LOG_FILE_NAME_PATTERN}</fileNamePattern>
+            <maxFileSize>${MAX_FILESIZE}</maxFileSize>
+            <maxHistory>${MAX_HISTORY}</maxHistory>
+        </rollingPolicy>
+    </appender>
+
+    <appender name="FILE_SCHEDULE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}${LOG_FILE_NAME_SCHEDULE}</file>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <charset>${LOG_CHARSET}</charset>
+            <pattern>${LOG_PATTERN_SCHEDULE}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_BACKUP_PATH}Schedule/${LOG_FILE_NAME_SCHEDULE}.${LOG_FILE_NAME_PATTERN}</fileNamePattern>
+            <maxFileSize>${MAX_FILESIZE}</maxFileSize>
+            <maxHistory>${MAX_HISTORY}</maxHistory>
+        </rollingPolicy>
+    </appender>
+
+    <root level="${ROOT_LOG_LEVEL}">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="ERROR"/>
+    </root>
+
+    <logger name="com.its.dsrc.xnetwork.tcp" level="DEBUG" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="PACKET"/>
+    </logger>
+
+    <logger name="com.its.dsrc.xnetwork.udp" level="DEBUG" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="CENTER_COMM"/>
+    </logger>
+
+    <logger name="com.its.dsrc.scheduler" level="DEBUG" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE_SCHEDULE"/>
+        <appender-ref ref="ERROR"/>
+    </logger>
+
+<!--
+    <logger name="org.apache.ibatis" level="DEBUG" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="ERROR"/>
+    </logger>
+-->
+
+    <logger name="jdbc"                level="OFF"   additivity="false"> <appender-ref ref="FILE_SQL" /> <appender-ref ref="ERROR"/> </logger>
+    <logger name="jdbc.sqlonly"        level="INFO"  additivity="false"> <appender-ref ref="FILE_SQL" /> <appender-ref ref="ERROR"/> </logger>
+    <logger name="jdbc.sqltiming"      level="DEBUG" additivity="false"> <appender-ref ref="FILE_SQL" /> <appender-ref ref="ERROR"/> </logger>
+    <logger name="jdbc.audit"          level="OFF"   additivity="false"> <appender-ref ref="FILE_SQL" /> <appender-ref ref="ERROR"/> </logger>
+    <logger name="jdbc.resultset"      level="INFO"  additivity="false"> <appender-ref ref="FILE_SQL" /> <appender-ref ref="ERROR"/> </logger>
+    <logger name="jdbc.resultsettable" level="INFO"  additivity="false"> <appender-ref ref="FILE_SQL" /> <appender-ref ref="ERROR"/> </logger>
+    <logger name="jdbc.connection"     level="INFO"  additivity="false"> <appender-ref ref="FILE_SQL" /> <appender-ref ref="ERROR"/> </logger>
+
+</configuration>

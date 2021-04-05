@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.its.dsrc.mapper.DsrcSectMapper">
+
+    <select id="selectCount" resultType="int">
+    <![CDATA[
+        SELECT COUNT(1) AS datacnt FROM TB_RSE_SECT_MSTR A WHERE A.DEL_YN = 'N'
+    ]]>
+    </select>
+
+    <select id="selectAll" resultType="com.its.dsrc.vo.voDsrcSect">
+    <![CDATA[
+        SELECT A.RSE_SECT_ID,
+               A.DSTC,
+               A.RSE_SECT_NM,
+               A.STRT_SPOT_NM,
+               A.END_SPOT_NM,
+               A.DEL_YN,
+               A.STRT_ID,
+               A.END_ID,
+               S.RSE_ID AS STR_RSE_ID,
+               E.RSE_ID AS END_RSE_ID
+          FROM TB_RSE_SECT_MSTR A, TB_RSE_MSTR S, TB_RSE_MSTR E
+         WHERE A.DEL_YN  = 'N'
+           AND A.STRT_ID = S.ID
+           AND A.END_ID  = E.ID
+         ORDER BY A.RSE_SECT_ID
+    ]]>
+    </select>
+
+    <insert id="insertRseSectTrafHs" parameterType="com.its.dsrc.vo.voDsrcSectTraf">
+    <![CDATA[
+          INSERT INTO TB_RSE_SECT_TRAF (
+                   RSE_SECT_ID,
+                   CRTN_DT,
+                   TFVL,
+                   TRVL_SPED,
+                   TRVL_HH )
+          VALUES (
+                  #{obj.RSE_SECT_ID},
+                  <!-- #{obj.CRTN_DT}, -->
+                  TO_CHAR(SYSDATE,'YYYYMMDDHH24MISS'),
+                  #{obj.TFVL},
+                  #{obj.TRVL_SPED},
+                  #{obj.TRVL_HH}
+                 )
+    ]]>
+    </insert>
+
+    <insert id="insertRseSectPassHs" parameterType="com.its.dsrc.vo.voDsrcSectPass">
+    <![CDATA[
+          INSERT INTO TB_RSE_SECT_PASS_HS (
+                   RSE_SECT_ID,
+                   CRTN_DT,
+                   OBU_IDNT_NMBR,
+                   STRT_SPOT_PASS_DT,
+                   END_SPOT_PASS_DT )
+          VALUES (
+                  #{obj.RSE_SECT_ID},
+                  <!-- #{obj.CRTN_DT}, -->
+                  TO_CHAR(SYSDATE,'YYYYMMDDHH24MISS'),
+                  #{obj.OBU_IDNT_NMBR},
+                  #{obj.STRT_SPOT_PASS_DT},
+                  #{obj.END_SPOT_PASS_DT}
+                 )
+    ]]>
+    </insert>
+
+</mapper>

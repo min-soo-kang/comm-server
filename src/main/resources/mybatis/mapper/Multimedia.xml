@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.its.dsrc.mapper.MultimediaMapper">
+
+    <select id="selectDsrcOffrSectInfo" resultType="com.its.dsrc.vo.voDsrcOffrSect">
+    <![CDATA[
+	    SELECT A.OFFR_SECT_ID, A.OFFR_DRCT_NM, A.CNGS_BASI_SPED,
+               A.DELY_BASI_SPED, A.ID, A.OBU_ENTR_DRCT_NMBR
+          FROM TB_RSE_OFFR_SECT_MNGM A
+
+    ]]>
+    </select>
+
+    <select id="selectDsrcOffrSectTraf" resultType="com.its.dsrc.vo.voDsrcOffrSectTraf">
+    <![CDATA[
+        SELECT OFFR_SECT_ID, OFFR_DRCT_NM, OBU_ENTR_DRCT_NMBR,
+               IFSC_ID, CMTR_GRAD_CD,
+               (SELECT CMMN_CD_KOR_NM
+                   FROM TB_CMMN_CD
+                  WHERE CMMN_CLSF_CD = 'LTC'
+                    AND CMMN_CD = CMTR_GRAD_CD) AS CMTR_GRAD_NM,
+               SPED, TRVL_HH
+          FROM (SELECT A.OFFR_SECT_ID, B.OFFR_DRCT_NM, B.OBU_ENTR_DRCT_NMBR,
+                       'x' AS IFSC_ID,
+                       CASE WHEN AVG_SPED >  B.DELY_BASI_SPED THEN 'LTC1'
+                            WHEN AVG_SPED <= B.CNGS_BASI_SPED THEN 'LTC3'
+                            ELSE 'LTC2'
+                       END AS CMTR_GRAD_CD,
+                       AVG_SPED AS SPED,
+                       TRVL_HH
+                  FROM (SELECT A.OFFR_SECT_ID,
+                               ROUND(AVG(B.SPED), 0) AS SPED,
+                               ROUND(AVG(B.TRVL_HH), 0) AS TRVL_HH,
+                               ROUND(((SUM(C.SECT_LNGT) * 3.6) / SUM(B.TRVL_HH)), 0) AS AVG_SPED,
+                               COUNT(1)              AS CNT
+                          FROM TB_RSE_OFFR_SECT_INFR A,
+                               TB_IFSC_TRAF          B,
+                               TB_IFSC               C
+                         WHERE 1=1
+                           AND A.IFSC_ID = B.IFSC_ID
+                           AND B.IFSC_ID = C.IFSC_ID
+                           AND B.CMTR_GRAD_CD <> 'LTC0'
+                           AND B.TRVL_HH > 0
+                          GROUP BY A.OFFR_SECT_ID
+                          ) A,
+                       TB_RSE_OFFR_SECT_MNGM B
+                 WHERE 1 = 1
+                   AND A.OFFR_SECT_ID = B.OFFR_SECT_ID
+               )
+
+    ]]>
+    </select>
+
+    <select id="selectDsrcOffrSectTraf_MULTI" resultType="com.its.dsrc.vo.voDsrcOffrSectTraf">
+    <![CDATA[
+
+	    SELECT A.OFFR_SECT_ID,
+               B.IFSC_ID,
+               B.CMTR_GRAD_CD,
+               C.CMMN_CD_KOR_NM         AS CMTR_GRAD_NM,
+               ROUND(AVG(B.SPED),    0) AS SPED,
+               ROUND(AVG(B.TRVL_HH), 0) AS TRVL_HH
+          FROM TB_RSE_OFFR_SECT_INFR A,
+               TB_IFSC_TRAF          B,
+               (SELECT CMMN_CD, CMMN_CD_KOR_NM
+                  FROM TB_CMMN_CD
+                 WHERE CMMN_CLSF_CD = 'LTC') C
+         WHERE 1 = 1
+           AND A.IFSC_ID = B.IFSC_ID
+           AND B.CMTR_GRAD_CD = C.CMMN_CD
+         GROUP BY A.OFFR_SECT_ID, B.IFSC_ID, B.CMTR_GRAD_CD, C.CMMN_CD_KOR_NM
+    ]]>
+    </select>
+
+    <insert id="insertDsrcOffrInfrHs" parameterType="com.its.dsrc.vo.voDsrcOffrInfrHs">
+    <![CDATA[
+          INSERT INTO TB_RSE_OFFR_INFR_HS (
+                  OFFR_SECT_ID,
+	              OFFR_DT,
+                  OFFR_CONT
+                 )
+          VALUES (
+                  #{obj.OFFR_SECT_ID},
+                  #{obj.OFFR_DT},
+                  #{obj.OFFR_CONT}
+                 )
+    ]]>
+    </insert>
+
+</mapper>

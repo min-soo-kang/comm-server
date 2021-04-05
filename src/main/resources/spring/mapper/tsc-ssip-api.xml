@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.its.dsrc.mapper.CommServerMapper">
+
+    <select id="selectCount" resultType="int">
+    <![CDATA[
+        SELECT COUNT(1) AS datacnt FROM TB_UNIT_SYST WHERE A.DEL_YN = 'N'
+    ]]>
+    </select>
+
+
+</mapper>

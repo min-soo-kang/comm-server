@@ -1,0 +1,174 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body{
+    font-family: Tahoma;
+    /*display: flex;*/
+    justify-content: center;
+    align-items: center;
+
+}
+nav{
+    position: relative;
+    display: flex;
+    justify-content:center;
+}
+nav a{
+    position: relative;
+    margin: 0 20px;
+    font-size:1.5em;
+    color:#000000;
+    text-decoration: none;
+}
+nav #underline{
+    position: absolute;
+    left: 0;
+    height: 4px;
+    width: 0;
+    background: #000000;
+    bottom: -9px;
+    transition: 0.2s;
+    border-radius: 5px;
+
+}
+.container{
+
+}
+.container .nav {
+    position: relative;
+    cursor:pointer;
+}
+
+.container .title {
+    text-align: center;
+    font-family: Tahoma;
+    font-weight: bold;
+    font-size: 30px;
+    color: #808080;
+    margin: 15px;
+}
+.container .time{
+    font-family: Tahoma;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: right;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    color: black;
+}
+.container .content {
+    font-family: Tahoma;
+    font-size: 15px;
+    padding-top: 50px;
+    width:80%;
+    margin:auto;
+}
+.container .content fieldset legend{
+
+    text-align: left;
+    font-size: 25px;
+    font-weight: bold;
+    margin-left:10px;
+}
+.container .content fieldset table{
+    width: 100%;
+    margin: 10px auto;
+}
+
+.container .content table tr td {
+    padding: 5px;
+}
+.container .content .system table tr td:first-child, .container .content #loginForm table tr td:first-child  {
+    text-align: right;
+    width: 200px;
+}
+.container .content .system table tr td:last-child,.container .content #loginForm table tr td:first-child {
+    text-align: left;
+
+}
+.container .system fieldset table input{
+    width: 80%;
+    height: 30px;
+    text-align: center;
+}
+.container .system{
+    width: 50%;
+    margin: auto;
+}
+.container .controller{
+    display: none;
+    width: 100%;
+    /*margin-left: -15%;*/
+
+}
+.container .controller table{
+    border:1px solid black;
+    border-collapse: collapse
+
+}
+.container .controller table thead tr {
+    background: grey
+}
+.container .controller table thead th {
+    border:1px solid black;
+}
+
+.container .controller table tr td{
+    border:1px solid black;
+}
+
+.container .controller table tbody {
+    /*display: block;
+    height: 750px;*/
+    /*overflow: auto;*/
+}
+.container .content .log table tr .fileIndex {
+    text-align: center;
+    width: 50px;
+}
+.container .log{
+    display: none;
+    width: 60%;
+    margin-left: 20%;
+}
+
+.container .log  #FileForm{
+    display: none;
+}
+
+
+
+/*
+로그인
+ */
+
+#loginForm {
+    margin: auto;
+    margin-left: 30%;
+}
+
+#loginForm label {
+    width:20%;
+}
+
+#loginForm .textBox{
+    margin: 15px;
+    margin-left: 30%;
+}
+#loginForm  input[type="text"],
+#loginForm  input[type="password"] {
+    width:65%;
+
+
+}
+
+#loginForm .submit{
+width:5%;
+}
+
+#loginForm .error {
+    margin-left: 15%;
+}

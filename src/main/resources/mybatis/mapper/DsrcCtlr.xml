@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.its.dsrc.mapper.DsrcCtlrMapper">
+
+    <select id="selectCount" resultType="int">
+    <![CDATA[
+        SELECT COUNT(1) AS datacnt FROM TB_RSE_MSTR A WHERE A.DEL_YN = 'N'
+    ]]>
+    </select>
+
+    <select id="selectAll" resultType="com.its.dsrc.vo.voDsrcCtlr">
+    <![CDATA[
+	    SELECT A.ID,
+	           A.RSE_ID,
+               A.ROAD_SPOT_ID,
+               A.LOG_CNNC_ID,
+               A.LOG_CNNC_PW,
+               A.ISTL_LCTN_NM,
+               A.IP AS IP_ADDR,
+	           TO_NUMBER(NVL(A.PORT, '0')) AS PORT,
+               A.MNFC_CMPY_CD,
+               A.CLCT_ABNR_BASI
+	      FROM TB_RSE_MSTR A
+	     WHERE A.DEL_YN = 'N'
+	     ORDER BY A.RSE_ID
+    ]]>
+    </select>
+
+    <select id="selectObuNonCryptList" resultType="com.its.dsrc.vo.voObuNonCrypt">
+    <![CDATA[
+	    SELECT TRIM(A.OBU_ID) AS OBU_ID
+	      FROM TB_OBU_NON_CRPT A
+	     ORDER BY A.OBU_ID
+    ]]>
+    </select>
+
+    <update id="updateRseCtlrStts" parameterType="com.its.dsrc.vo.voDsrcCtlrStts">
+    <![CDATA[
+        MERGE INTO TB_RSE_STTS_PNST L
+        USING (SELECT #{obj.ID} 	         AS ID,
+                      #{obj.CLCT_DT} 	     AS CLCT_DT,
+                      #{obj.CNTL_DEVC_STTS} AS CNTL_DEVC_STTS,
+                      #{obj.CMNC_STTS} 	 AS CMNC_STTS,
+                      #{obj.ATN_1_STTS} 	 AS ATN_1_STTS,
+                      #{obj.ATN_2_STTS} 	 AS ATN_2_STTS,
+                      #{obj.ATN_3_STTS} 	 AS ATN_3_STTS,
+                      #{obj.ATN_4_STTS} 	 AS ATN_4_STTS,
+                      #{obj.ATN_1_MTNS} 	 AS ATN_1_MTNS,
+                      #{obj.ATN_2_MTNS} 	 AS ATN_2_MTNS,
+                      #{obj.ATN_3_MTNS} 	 AS ATN_3_MTNS,
+                      #{obj.ATN_4_MTNS} 	 AS ATN_4_MTNS
+                 FROM DUAL) M
+        ON ( L.ID = M.ID )
+        WHEN MATCHED THEN
+          UPDATE SET L.CLCT_DT        = M.CLCT_DT,
+                     L.CNTL_DEVC_STTS = M.CNTL_DEVC_STTS,
+                     L.CMNC_STTS      = M.CMNC_STTS,
+                     L.ATN_1_STTS     = M.ATN_1_STTS,
+                     L.ATN_2_STTS     = M.ATN_2_STTS,
+                     L.ATN_3_STTS     = M.ATN_3_STTS,
+                     L.ATN_4_STTS     = M.ATN_4_STTS,
+                     L.ATN_1_MTNS     = M.ATN_1_MTNS,
+                     L.ATN_2_MTNS     = M.ATN_2_MTNS,
+                     L.ATN_3_MTNS     = M.ATN_3_MTNS,
+                     L.ATN_4_MTNS     = M.ATN_4_MTNS
+        WHEN NOT MATCHED THEN
+          INSERT (
+	              L.ID,
+	              L.CLCT_DT,
+                  L.CNTL_DEVC_STTS,
+                  L.CMNC_STTS,
+                  L.ATN_1_STTS,
+                  L.ATN_2_STTS,
+                  L.ATN_3_STTS,
+                  L.ATN_4_STTS,
+                  L.ATN_1_MTNS,
+                  L.ATN_2_MTNS,
+                  L.ATN_3_MTNS,
+                  L.ATN_4_MTNS
+                 )
+          VALUES (
+	              M.ID,
+	              M.CLCT_DT,
+                  M.CNTL_DEVC_STTS,
+                  M.CMNC_STTS,
+                  M.ATN_1_STTS,
+                  M.ATN_2_STTS,
+                  M.ATN_3_STTS,
+                  M.ATN_4_STTS,
+                  M.ATN_1_MTNS,
+                  M.ATN_2_MTNS,
+                  M.ATN_3_MTNS,
+                  M.ATN_4_MTNS
+                 )
+    ]]>
+    </update>
+
+    <insert id="insertRseCtlrSttsHs" parameterType="com.its.dsrc.vo.voDsrcCtlrStts">
+    <![CDATA[
+          INSERT INTO TB_RSE_STTS_HS (
+                  ID,
+	              CLCT_DT,
+                  CNTL_DEVC_STTS,
+                  CMNC_STTS,
+                  ATN_1_STTS,
+                  ATN_2_STTS,
+                  ATN_3_STTS,
+                  ATN_4_STTS,
+                  ATN_1_MTNS,
+                  ATN_2_MTNS,
+                  ATN_3_MTNS,
+                  ATN_4_MTNS
+                 )
+          VALUES (
+                  #{obj.ID},
+                  #{obj.CLCT_DT},
+                  #{obj.CNTL_DEVC_STTS},
+                  #{obj.CMNC_STTS},
+                  #{obj.ATN_1_STTS},
+                  #{obj.ATN_2_STTS},
+                  #{obj.ATN_3_STTS},
+                  #{obj.ATN_4_STTS},
+                  #{obj.ATN_1_MTNS},
+                  #{obj.ATN_2_MTNS},
+                  #{obj.ATN_3_MTNS},
+                  #{obj.ATN_4_MTNS}
+                 )
+    ]]>
+    </insert>
+
+    <insert id="insertRseCtlrCntlHs" parameterType="com.its.dsrc.vo.voDsrcCtlrCntl">
+    <![CDATA[
+          INSERT INTO TB_RSE_CNTL_HS (
+                   ID,
+                   CNTL_DT,
+                   DEVC_TYPE,
+                   CNTL_TYPE,
+                   RSPS_TYPE )
+          VALUES (
+                  #{obj.ID},
+                  #{obj.CNTL_DT},
+                  #{obj.DEVC_TYPE},
+                  #{obj.CNTL_TYPE},
+                  #{obj.RSPS_TYPE}
+                 )
+    ]]>
+    </insert>
+
+    <insert id="insertRseCtlrLogHs" parameterType="com.its.dsrc.vo.voDsrcCtlrLog">
+    <![CDATA[
+          INSERT INTO TB_RSE_LOG_HS (
+                   ID,
+                   CLCT_DT,
+                   LOG_TYPE,
+                   LOG_ID,
+                   LOG_ADDRESS )
+          VALUES (
+                  #{obj.ID},
+                  #{obj.CLCT_DT},
+                  #{obj.LOG_TYPE},
+                  #{obj.LOG_ID},
+                  #{obj.LOG_ADDRESS}
+                 )
+    ]]>
+    </insert>
+
+</mapper>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.its.dsrc.mapper.DsrcOffrMapper">
+
+    <select id="selectRseOffrSectAll" resultType="com.its.dsrc.vo.voDsrcOffrSect">
+    <![CDATA[
+	    SELECT A.RSE_ID,
+               B.OFFR_SECT_ID, B.OFFR_DRCT_NM,
+               B.CNGS_BASI_SPED, B.DELY_BASI_SPED,
+               B.ID, B.OBU_ENTR_DRCT_NMBR,
+               D.IFSC_ID
+          FROM TB_RSE_MSTR           A,
+               TB_RSE_OFFR_SECT_MNGM B,
+               TB_RSE_OFFR_DRCT_INFR C,
+               TB_RSE_OFFR_SECT_INFR D
+         WHERE A.ID = B.ID
+           AND B.ID = C.ID
+           AND B.OBU_ENTR_DRCT_NMBR = C.OBU_ENTR_DRCT_NMBR
+           AND B.OFFR_SECT_ID       = D.OFFR_SECT_ID
+    ]]>
+    </select>
+
+    <select id="selectRseOffrDrctAll" resultType="com.its.dsrc.vo.voDsrcOffrDrct">
+    <![CDATA[
+	    SELECT A.ID, B.RSE_ID AS RSE_ID,
+                A.PRE_ID AS PRE_ID, C.RSE_ID AS PRE_RSE_ID,
+                A.IXR_DRCT_NUM, A.OBU_ENTR_DRCT_NMBR
+           FROM TB_RSE_OFFR_DRCT_INFR A,
+                TB_RSE_MSTR           B,
+                TB_RSE_MSTR           C
+          WHERE B.DEL_YN = 'N'
+            AND C.DEL_YN = 'N'
+            AND A.ID     = B.ID
+            AND A.PRE_ID = C.ID
+    ]]>
+    </select>
+
+</mapper>
