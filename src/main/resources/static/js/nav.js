@@ -35,14 +35,24 @@ function updateContent(id) {
     }
     else if(id ==='log'){
         logList();
+    }else if(id ==='system'){
+        requestService("","",SystemList,true);
     }
 
 
 
 }
 
-function ControllerList(result) {
-    console.log(result);
+function SystemList(result, statusText, xhr) {
+
+    if(sessionCheck(result, statusText, xhr)) return;
+    console.logS("")
+
+}
+
+function ControllerList(result, statusText, xhr) {
+
+    if(sessionCheck(result, statusText, xhr)) return;
     var tbody="";
     for(key in result){
         tbody += '<tr>';
@@ -63,6 +73,14 @@ function ControllerList(result) {
 
 }
 
+function sessionCheck(result, statusText, xhr) {
+    var contentType = xhr.getResponseHeader("Content-Type");
+    if (xhr.status === 200 && contentType.toLowerCase().indexOf("text/html") >= 0) { //handles session expiration
+        window.location.reload();
+        return true;
+    }
+    return false;
+}
 /*
 item.forEach(link =>{
     link.addEventListener('click', (event)=>{

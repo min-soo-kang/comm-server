@@ -1280,3 +1280,159 @@
 [2021-04-05 16:45:02.011] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: ..end. its-scheduled-task-pool-3
 [2021-04-05 16:46:02.004] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: start. its-scheduled-task-pool-3
 [2021-04-05 16:46:02.005] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: ..end. its-scheduled-task-pool-3
+[2021-04-05 16:47:02.001] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: start. its-scheduled-task-pool-3
+[2021-04-05 16:47:02.002] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: ..end. its-scheduled-task-pool-3
+[2021-04-05 16:48:02.013] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: start. its-scheduled-task-pool-3
+[2021-04-05 16:48:02.014] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: ..end. its-scheduled-task-pool-3
+[2021-04-05 16:49:02.011] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: start. its-scheduled-task-pool-3
+[2021-04-05 16:49:02.012] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: ..end. its-scheduled-task-pool-3
+[2021-04-05 16:53:24.328] [INFO ] [                 restartedMain] configureTasks-start.
+[2021-04-05 16:53:24.330] [INFO ] [                 restartedMain] configureTasks-end...
+[2021-04-05 16:53:58.575] [INFO ] [          http-nio-9872-exec-1] create Session
+[2021-04-05 16:53:58.577] [INFO ] [          http-nio-9872-exec-1] sessionCreated sessionid: 426A1C05D6359BBF5EA9C16EFCF443B4, setMaxInactiveInterval: 60, isNew: true time:Mon Apr 05 16:53:58 KST 2021
+[2021-04-05 16:54:02.009] [INFO ] [     its-scheduled-task-pool-1] OneMinuteJobSchedule :: start. its-scheduled-task-pool-1
+[2021-04-05 16:54:02.011] [INFO ] [     its-scheduled-task-pool-1] OneMinuteJobSchedule :: ..end. its-scheduled-task-pool-1
+[2021-04-05 16:55:02.002] [INFO ] [     its-scheduled-task-pool-1] OneMinuteJobSchedule :: start. its-scheduled-task-pool-1
+[2021-04-05 16:55:02.003] [INFO ] [     its-scheduled-task-pool-1] OneMinuteJobSchedule :: ..end. its-scheduled-task-pool-1
+[2021-04-05 16:55:13.104] [INFO ] [            Catalina-utility-2] dissconn Session
+[2021-04-05 16:55:13.105] [INFO ] [            Catalina-utility-2] dissconn sessionid: AAC37F8FD17D633BA635709E1D382B24, setMaxInactiveInterval: 60, isNew: false
+[2021-04-05 16:55:13.109] [INFO ] [            Catalina-utility-2] ====================
+[2021-04-05 16:55:13.110] [INFO ] [            Catalina-utility-2] Application Started
+[2021-04-05 16:55:13.111] [INFO ] [            Catalina-utility-2] ====================
+[2021-04-05 16:55:13.112] [INFO ] [            Catalina-utility-2] Application Started
+[2021-04-05 16:55:42.791] [INFO ] [          http-nio-9872-exec-6] create Session
+[2021-04-05 16:55:42.792] [INFO ] [          http-nio-9872-exec-6] sessionCreated sessionid: 769156661BCFBC0724EEB9EA0D1676F3, setMaxInactiveInterval: 60, isNew: true time:Mon Apr 05 16:55:42 KST 2021
+[2021-04-05 16:56:02.007] [INFO ] [     its-scheduled-task-pool-2] OneMinuteJobSchedule :: start. its-scheduled-task-pool-2
+[2021-04-05 16:56:02.008] [INFO ] [     its-scheduled-task-pool-2] OneMinuteJobSchedule :: ..end. its-scheduled-task-pool-2
+[2021-04-05 16:57:02.003] [INFO ] [     its-scheduled-task-pool-1] OneMinuteJobSchedule :: start. its-scheduled-task-pool-1
+[2021-04-05 16:57:02.004] [INFO ] [     its-scheduled-task-pool-1] OneMinuteJobSchedule :: ..end. its-scheduled-task-pool-1
+[2021-04-05 16:57:13.213] [INFO ] [            Catalina-utility-1] dissconn Session
+[2021-04-05 16:57:13.214] [INFO ] [            Catalina-utility-1] dissconn sessionid: 769156661BCFBC0724EEB9EA0D1676F3, setMaxInactiveInterval: 60, isNew: false
+[2021-04-05 16:57:13.216] [INFO ] [            Catalina-utility-1] ====================
+[2021-04-05 16:57:13.216] [INFO ] [            Catalina-utility-1] Application Started
+[2021-04-05 16:57:13.217] [INFO ] [            Catalina-utility-1] ====================
+[2021-04-05 16:57:13.218] [INFO ] [            Catalina-utility-1] Application Started
+[2021-04-05 16:58:02.011] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: start. its-scheduled-task-pool-3
+[2021-04-05 16:58:02.012] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: ..end. its-scheduled-task-pool-3
+[2021-04-05 16:59:02.002] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: start. its-scheduled-task-pool-3
+[2021-04-05 16:59:02.004] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: ..end. its-scheduled-task-pool-3
+[2021-04-05 17:00:02.004] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: start. its-scheduled-task-pool-3
+[2021-04-05 17:00:02.005] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: ..end. its-scheduled-task-pool-3
+[2021-04-05 17:01:02.012] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: start. its-scheduled-task-pool-3
+[2021-04-05 17:01:02.013] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: ..end. its-scheduled-task-pool-3
+[2021-04-05 17:02:02.002] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: start. its-scheduled-task-pool-3
+[2021-04-05 17:02:02.003] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: ..end. its-scheduled-task-pool-3
+[2021-04-05 17:03:02.000] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: start. its-scheduled-task-pool-3
+[2021-04-05 17:03:02.001] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: ..end. its-scheduled-task-pool-3
+[2021-04-05 17:04:02.002] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: start. its-scheduled-task-pool-3
+[2021-04-05 17:04:02.003] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: ..end. its-scheduled-task-pool-3
+[2021-04-05 17:05:02.005] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: start. its-scheduled-task-pool-3
+[2021-04-05 17:05:02.007] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: ..end. its-scheduled-task-pool-3
+[2021-04-05 17:06:02.010] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: start. its-scheduled-task-pool-3
+[2021-04-05 17:06:02.011] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: ..end. its-scheduled-task-pool-3
+[2021-04-05 17:07:02.001] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: start. its-scheduled-task-pool-3
+[2021-04-05 17:07:02.002] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: ..end. its-scheduled-task-pool-3
+[2021-04-05 17:08:02.003] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: start. its-scheduled-task-pool-3
+[2021-04-05 17:08:02.005] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: ..end. its-scheduled-task-pool-3
+[2021-04-05 17:09:02.014] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: start. its-scheduled-task-pool-3
+[2021-04-05 17:09:02.015] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: ..end. its-scheduled-task-pool-3
+[2021-04-05 17:10:15.880] [INFO ] [                 restartedMain] configureTasks-start.
+[2021-04-05 17:10:15.885] [INFO ] [                 restartedMain] configureTasks-end...
+[2021-04-05 17:10:19.798] [INFO ] [          http-nio-9872-exec-1] create Session
+[2021-04-05 17:10:19.801] [INFO ] [          http-nio-9872-exec-1] sessionCreated sessionid: B2F0910E5ED596AC064439E0FDA2C43D, setMaxInactiveInterval: 60, isNew: true time:Mon Apr 05 17:10:19 KST 2021
+[2021-04-05 17:11:02.003] [INFO ] [     its-scheduled-task-pool-1] OneMinuteJobSchedule :: start. its-scheduled-task-pool-1
+[2021-04-05 17:11:02.004] [INFO ] [     its-scheduled-task-pool-1] OneMinuteJobSchedule :: ..end. its-scheduled-task-pool-1
+[2021-04-05 17:11:59.504] [INFO ] [          http-nio-9872-exec-9] dissconn Session
+[2021-04-05 17:11:59.505] [INFO ] [          http-nio-9872-exec-9] dissconn sessionid: C80EB89940DD05600E0ED101DF5E7907, setMaxInactiveInterval: 60, isNew: false
+[2021-04-05 17:11:59.508] [INFO ] [          http-nio-9872-exec-9] ====================
+[2021-04-05 17:11:59.509] [INFO ] [          http-nio-9872-exec-9] Application Started
+[2021-04-05 17:11:59.511] [INFO ] [          http-nio-9872-exec-9] ====================
+[2021-04-05 17:11:59.511] [INFO ] [          http-nio-9872-exec-9] Application Started
+[2021-04-05 17:11:59.514] [INFO ] [          http-nio-9872-exec-9] create Session
+[2021-04-05 17:11:59.514] [INFO ] [          http-nio-9872-exec-9] sessionCreated sessionid: 2CC66F1017A0F3F2F5BF50E27B656635, setMaxInactiveInterval: 60, isNew: true time:Mon Apr 05 17:11:59 KST 2021
+[2021-04-05 17:12:02.011] [INFO ] [     its-scheduled-task-pool-1] OneMinuteJobSchedule :: start. its-scheduled-task-pool-1
+[2021-04-05 17:12:02.012] [INFO ] [     its-scheduled-task-pool-1] OneMinuteJobSchedule :: ..end. its-scheduled-task-pool-1
+[2021-04-05 17:13:07.030] [INFO ] [                 restartedMain] configureTasks-start.
+[2021-04-05 17:13:07.032] [INFO ] [                 restartedMain] configureTasks-end...
+[2021-04-05 17:14:02.016] [INFO ] [     its-scheduled-task-pool-1] OneMinuteJobSchedule :: start. its-scheduled-task-pool-1
+[2021-04-05 17:14:02.017] [INFO ] [     its-scheduled-task-pool-1] OneMinuteJobSchedule :: ..end. its-scheduled-task-pool-1
+[2021-04-05 17:14:31.923] [INFO ] [          http-nio-9872-exec-1] create Session
+[2021-04-05 17:14:31.927] [INFO ] [          http-nio-9872-exec-1] sessionCreated sessionid: CB44F371F2AAB959849C1A271FDE8599, setMaxInactiveInterval: 60, isNew: true time:Mon Apr 05 17:14:31 KST 2021
+[2021-04-05 17:15:02.006] [INFO ] [     its-scheduled-task-pool-1] OneMinuteJobSchedule :: start. its-scheduled-task-pool-1
+[2021-04-05 17:15:02.006] [INFO ] [     its-scheduled-task-pool-1] OneMinuteJobSchedule :: ..end. its-scheduled-task-pool-1
+[2021-04-05 17:16:02.013] [INFO ] [     its-scheduled-task-pool-2] OneMinuteJobSchedule :: start. its-scheduled-task-pool-2
+[2021-04-05 17:16:02.015] [INFO ] [     its-scheduled-task-pool-2] OneMinuteJobSchedule :: ..end. its-scheduled-task-pool-2
+[2021-04-05 17:16:35.513] [INFO ] [          http-nio-9872-exec-6] dissconn Session
+[2021-04-05 17:16:35.514] [INFO ] [          http-nio-9872-exec-6] dissconn sessionid: BE5F90C8A82FAF561FE3F02593C83E06, setMaxInactiveInterval: 60, isNew: false
+[2021-04-05 17:16:35.518] [INFO ] [          http-nio-9872-exec-6] ====================
+[2021-04-05 17:16:35.518] [INFO ] [          http-nio-9872-exec-6] Application Started
+[2021-04-05 17:16:35.519] [INFO ] [          http-nio-9872-exec-6] ====================
+[2021-04-05 17:16:35.520] [INFO ] [          http-nio-9872-exec-6] Application Started
+[2021-04-05 17:16:35.522] [INFO ] [          http-nio-9872-exec-6] create Session
+[2021-04-05 17:16:35.522] [INFO ] [          http-nio-9872-exec-6] sessionCreated sessionid: 4862F57F4D75356E632DE9879FBBA69C, setMaxInactiveInterval: 60, isNew: true time:Mon Apr 05 17:16:35 KST 2021
+[2021-04-05 17:17:02.004] [INFO ] [     its-scheduled-task-pool-1] OneMinuteJobSchedule :: start. its-scheduled-task-pool-1
+[2021-04-05 17:17:02.005] [INFO ] [     its-scheduled-task-pool-1] OneMinuteJobSchedule :: ..end. its-scheduled-task-pool-1
+[2021-04-05 17:17:56.163] [INFO ] [            Catalina-utility-2] dissconn Session
+[2021-04-05 17:17:56.165] [INFO ] [            Catalina-utility-2] dissconn sessionid: 4862F57F4D75356E632DE9879FBBA69C, setMaxInactiveInterval: 60, isNew: false
+[2021-04-05 17:17:56.167] [INFO ] [            Catalina-utility-2] ====================
+[2021-04-05 17:17:56.168] [INFO ] [            Catalina-utility-2] Application Started
+[2021-04-05 17:17:56.169] [INFO ] [            Catalina-utility-2] ====================
+[2021-04-05 17:17:56.170] [INFO ] [            Catalina-utility-2] Application Started
+[2021-04-05 17:18:02.016] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: start. its-scheduled-task-pool-3
+[2021-04-05 17:18:02.017] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: ..end. its-scheduled-task-pool-3
+[2021-04-05 17:19:02.007] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: start. its-scheduled-task-pool-3
+[2021-04-05 17:19:02.008] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: ..end. its-scheduled-task-pool-3
+[2021-04-05 17:20:02.011] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: start. its-scheduled-task-pool-3
+[2021-04-05 17:20:02.012] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: ..end. its-scheduled-task-pool-3
+[2021-04-05 17:21:02.014] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: start. its-scheduled-task-pool-3
+[2021-04-05 17:21:02.015] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: ..end. its-scheduled-task-pool-3
+[2021-04-05 17:22:02.010] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: start. its-scheduled-task-pool-3
+[2021-04-05 17:22:02.011] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: ..end. its-scheduled-task-pool-3
+[2021-04-05 17:23:09.535] [INFO ] [                 restartedMain] configureTasks-start.
+[2021-04-05 17:23:09.537] [INFO ] [                 restartedMain] configureTasks-end...
+[2021-04-05 17:23:44.661] [INFO ] [          http-nio-9872-exec-1] create Session
+[2021-04-05 17:23:44.664] [INFO ] [          http-nio-9872-exec-1] sessionCreated sessionid: 0DA83BBA950D386C3B2673865D3DA610, setMaxInactiveInterval: 60, isNew: true time:Mon Apr 05 17:23:44 KST 2021
+[2021-04-05 17:23:51.483] [INFO ] [          http-nio-9872-exec-7] create Session
+[2021-04-05 17:23:51.484] [INFO ] [          http-nio-9872-exec-7] sessionCreated sessionid: 67F177548A66C6E58A1E71C2CC709946, setMaxInactiveInterval: 60, isNew: true time:Mon Apr 05 17:23:51 KST 2021
+[2021-04-05 17:24:02.009] [INFO ] [     its-scheduled-task-pool-1] OneMinuteJobSchedule :: start. its-scheduled-task-pool-1
+[2021-04-05 17:24:02.010] [INFO ] [     its-scheduled-task-pool-1] OneMinuteJobSchedule :: ..end. its-scheduled-task-pool-1
+[2021-04-05 17:24:57.869] [INFO ] [            Catalina-utility-2] dissconn Session
+[2021-04-05 17:24:57.870] [INFO ] [            Catalina-utility-2] dissconn sessionid: 6D68137EB77D9A2C5B37875678406D70, setMaxInactiveInterval: 60, isNew: false
+[2021-04-05 17:24:57.874] [INFO ] [            Catalina-utility-2] ====================
+[2021-04-05 17:24:57.874] [INFO ] [            Catalina-utility-2] Application Started
+[2021-04-05 17:24:57.876] [INFO ] [            Catalina-utility-2] ====================
+[2021-04-05 17:24:57.876] [INFO ] [            Catalina-utility-2] Application Started
+[2021-04-05 17:24:57.877] [INFO ] [            Catalina-utility-2] dissconn Session
+[2021-04-05 17:24:57.877] [INFO ] [            Catalina-utility-2] dissconn sessionid: AC97E11269A73951B072C71DABD338C5, setMaxInactiveInterval: 60, isNew: false
+[2021-04-05 17:24:57.878] [INFO ] [            Catalina-utility-2] ====================
+[2021-04-05 17:24:57.879] [INFO ] [            Catalina-utility-2] Application Started
+[2021-04-05 17:24:57.879] [INFO ] [            Catalina-utility-2] ====================
+[2021-04-05 17:24:57.879] [INFO ] [            Catalina-utility-2] Application Started
+[2021-04-05 17:25:02.013] [INFO ] [     its-scheduled-task-pool-1] OneMinuteJobSchedule :: start. its-scheduled-task-pool-1
+[2021-04-05 17:25:02.015] [INFO ] [     its-scheduled-task-pool-1] OneMinuteJobSchedule :: ..end. its-scheduled-task-pool-1
+[2021-04-05 17:25:28.739] [INFO ] [          http-nio-9872-exec-2] create Session
+[2021-04-05 17:25:28.740] [INFO ] [          http-nio-9872-exec-2] sessionCreated sessionid: 798B271DA1BD95AE438F4E73624C68B6, setMaxInactiveInterval: 60, isNew: true time:Mon Apr 05 17:25:28 KST 2021
+[2021-04-05 17:26:02.009] [INFO ] [     its-scheduled-task-pool-2] OneMinuteJobSchedule :: start. its-scheduled-task-pool-2
+[2021-04-05 17:26:02.011] [INFO ] [     its-scheduled-task-pool-2] OneMinuteJobSchedule :: ..end. its-scheduled-task-pool-2
+[2021-04-05 17:27:02.011] [INFO ] [     its-scheduled-task-pool-2] OneMinuteJobSchedule :: start. its-scheduled-task-pool-2
+[2021-04-05 17:27:02.012] [INFO ] [     its-scheduled-task-pool-2] OneMinuteJobSchedule :: ..end. its-scheduled-task-pool-2
+[2021-04-05 17:27:58.190] [INFO ] [            Catalina-utility-1] dissconn Session
+[2021-04-05 17:27:58.191] [INFO ] [            Catalina-utility-1] dissconn sessionid: 29E521FDBC1ACFFD9ED1F6C63382E5AA, setMaxInactiveInterval: 60, isNew: false
+[2021-04-05 17:27:58.192] [INFO ] [            Catalina-utility-1] ====================
+[2021-04-05 17:27:58.193] [INFO ] [            Catalina-utility-1] Application Started
+[2021-04-05 17:27:58.194] [INFO ] [            Catalina-utility-1] ====================
+[2021-04-05 17:27:58.194] [INFO ] [            Catalina-utility-1] Application Started
+[2021-04-05 17:28:02.004] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: start. its-scheduled-task-pool-3
+[2021-04-05 17:28:02.005] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: ..end. its-scheduled-task-pool-3
+[2021-04-05 17:29:02.012] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: start. its-scheduled-task-pool-3
+[2021-04-05 17:29:02.013] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: ..end. its-scheduled-task-pool-3
+[2021-04-05 17:30:02.008] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: start. its-scheduled-task-pool-3
+[2021-04-05 17:30:02.009] [INFO ] [     its-scheduled-task-pool-3] OneMinuteJobSchedule :: ..end. its-scheduled-task-pool-3
+[2021-04-05 17:31:09.937] [INFO ] [                 restartedMain] configureTasks-start.
+[2021-04-05 17:31:09.938] [INFO ] [                 restartedMain] configureTasks-end...
+[2021-04-05 17:31:40.979] [INFO ] [                 restartedMain] configureTasks-start.
+[2021-04-05 17:31:40.981] [INFO ] [                 restartedMain] configureTasks-end...
+[2021-04-05 17:31:58.140] [INFO ] [          http-nio-9872-exec-1] create Session
+[2021-04-05 17:31:58.143] [INFO ] [          http-nio-9872-exec-1] sessionCreated sessionid: DB66FB91C1AC79DF431A253AD1220DC8, setMaxInactiveInterval: 60, isNew: true time:Mon Apr 05 17:31:58 KST 2021
+[2021-04-05 17:32:02.002] [INFO ] [     its-scheduled-task-pool-1] OneMinuteJobSchedule :: start. its-scheduled-task-pool-1
+[2021-04-05 17:32:02.003] [INFO ] [     its-scheduled-task-pool-1] OneMinuteJobSchedule :: ..end. its-scheduled-task-pool-1

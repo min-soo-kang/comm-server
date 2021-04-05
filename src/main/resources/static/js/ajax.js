@@ -18,21 +18,21 @@ function requestService(url, param, callback, async) {
         , type: 'POST'
         , statusCode: {
             301: function(resp){
-                console.log("301에러");
-                window.location.replace('/');
+                window.location.reload();
             },
             302: function(resp){
-                console.log("302에러");
-                window.location.replace('/');
+                window.location.reload();
             }
-        }
-        , success: callback
-        , error: function (request,status,e) {
-            console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+e);
         }
         , beforeSend: function (xhr) {
             if(header != null) xhr.setRequestHeader(header, token);
         }
 
+    })
+        .done(callback)
+        .fail(function (request,status,e) {
+        console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+e);
     });
 }
+
+
