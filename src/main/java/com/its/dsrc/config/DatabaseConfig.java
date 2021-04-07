@@ -19,7 +19,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableTransactionManagement
-public class DatabaseConfig {
+public class      DatabaseConfig {
 
     @Primary
     @Bean(name="dataSource")

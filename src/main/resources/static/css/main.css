@@ -41,6 +41,7 @@ nav #underline{
     position: relative;
     cursor:pointer;
 }
+.container .nav a:hover { color: green; font-weight: bold }
 
 .container .title {
     text-align: center;
@@ -66,13 +67,13 @@ nav #underline{
     width:80%;
     margin:auto;
 }
-.container .content fieldset legend{
+/*.container .content fieldset legend{
 
     text-align: left;
     font-size: 25px;
     font-weight: bold;
     margin-left:10px;
-}
+}*/
 .container .content fieldset table{
     width: 100%;
     margin: 10px auto;
@@ -83,32 +84,53 @@ nav #underline{
 }
 .container .content .system table tr td:first-child, .container .content #loginForm table tr td:first-child  {
     text-align: right;
-    width: 200px;
+    width: 100px;
 }
 .container .content .system table tr td:last-child,.container .content #loginForm table tr td:first-child {
     text-align: left;
 
 }
-.container .system fieldset table input{
+.container .content .system legend {
+    text-align: center;
+    font-size: 25px;
+    padding-bottom: 10px;
+}
+.container .content .system table {
+    margin: auto;
+}
+.container .content .system table td input {
+    width:180px;
+    padding-left: 2px;
+}
+/*.container .system fieldset table input{
     width: 80%;
     height: 30px;
     text-align: center;
-}
+}*/
 .container .system{
     width: 50%;
     margin: auto;
 }
 .container .controller{
-    display: none;
+
     width: 100%;
     /*margin-left: -15%;*/
 
 }
 .container .controller table{
+    width: 100%;
     border:1px solid black;
     border-collapse: collapse
 
 }
+
+.container .controller legend{
+    font-size: 25px;
+    text-align: center;
+    padding-bottom: 10px;
+
+}
+
 .container .controller table thead tr {
     background: grey
 }
@@ -125,18 +147,39 @@ nav #underline{
     height: 750px;*/
     /*overflow: auto;*/
 }
+.container .controller .ControllerButtons {
+    text-align: right;
+    padding: 10px;
+    margin-left: 15px;
+}
+.container .controller .ControllerButtons Button{
+    margin-left: 20px;
+    padding: 5px;
+}
 .container .content .log table tr .fileIndex {
     text-align: center;
     width: 50px;
 }
 .container .log{
-    display: none;
+
     width: 60%;
     margin-left: 20%;
 }
 
 .container .log  #FileForm{
     display: none;
+}
+.container .log  table{
+    margin: auto;
+    width: 100%;
+    padding: 5px 0px 15px 0px;
+}
+
+.container .log legend{
+    font-size: 25px;
+    text-align: center;
+    padding-bottom: 10px;
+
 }
 
 
@@ -147,7 +190,7 @@ nav #underline{
 
 #loginForm {
     margin: auto;
-    margin-left: 30%;
+    margin-left: 40%;
 }
 
 #loginForm label {
