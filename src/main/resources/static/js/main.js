@@ -98,25 +98,41 @@ function fileDelete(name,path) {
 
 }
 function initFileListTest(fileList) {
+
+
     fileList.forEach(function (el,index) {
+
+
         if(el.type=="dir"){
 
             if(el.fileName==="logs"){
-                fileListTbody += "<tr class='treegrid-"+el.id+" expanded'>";
             }else {
-                fileListTbody += "<tr class='treegrid-"+el.id+" expanded treegrid-parent-"+el.parent+"'>";
+
+                if(el.parent > 1) {
+                    fileListTbody += "<tr class='treegrid-"+el.id+" expanded treegrid-parent-"+el.parent+"'>";
+                }
+                else {
+                    fileListTbody += "<tr class='treegrid-"+el.id+" expanded'>";
+                }
+                fileListTbody += "<td>"+el.fileName+"</td>"
+                fileListTbody += "</tr>"
             }
 
-            fileListTbody += "<td>"+el.fileName+"</td>"
-            fileListTbody += "</tr>"
+
         }else{
-            fileListTbody += "<tr class='treegrid-"+el.id+" treegrid-parent-"+el.parent+"'>";
+            if(el.parent > 1) {
+                fileListTbody += "<tr class='treegrid-"+el.id+" expanded treegrid-parent-"+el.parent+"'>";
+            }
+            else {
+                fileListTbody += "<tr class='treegrid-"+el.id+" expanded'>";
+            }
             fileListTbody +="<td>"+el.fileName+" ("+el.fileSize+" Byte)</td>";
             fileListTbody += '<td><a href=javascript:fileView(\''+el.fileName+'\',\''+el.filePath+'\')>VIew</a></td>'
             fileListTbody += "<td><a href=javascript:fileDownload('"+el.fileName+"','"+el.filePath+"')>Download</a></td>"
             fileListTbody += "<td><a href=javascript:fileDelete('"+el.fileName+"','"+el.filePath+"')>Delete</a></td>"
             fileListTbody += "</tr>"
         }
+
 
         if(el.fileInfos.length > 0) initFileListTest(el.fileInfos);
     });

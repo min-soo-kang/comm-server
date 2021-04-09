@@ -170,11 +170,16 @@ public class FileService {
                 id++;
                 info.setFileName(file.getName());
                 info.setFileSize(file.length());
-                String subDir = file.getPath().substring(file.getPath().indexOf(logDir.replaceAll("/","")),file.getPath().length()-file.getName().length());
-                info.setFilePath(File.separator + subDir);
+                String subDir = file.getPath().substring(file.getPath().indexOf(logDir.replaceAll("/","")),file.getPath().length()-file.getName().length()).replaceAll("\\\\","/");
+
+                if(File.separator.equals("\\")){
+                    subDir = "/"+subDir;
+                }
+
+                info.setFilePath( subDir);
                 info.setType("log");
                 info.setParent(rootId);
-                log.info(info.toString());
+                //log.info(info.toString());
                 subArr.add(info);
             }
         }

@@ -83,6 +83,7 @@ public class MainController {
     public Map<String,Object> getServerDate(){
         Map<String,Object> map = new HashMap<>();
         map.put("serverDate",new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+        
         return map;
     }
 
